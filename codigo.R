@@ -61,8 +61,8 @@ groc <- gROC_param(X,D, side= "both")
 a <- 1
 b <- 2
 plot_densities(roc, main='Funciones de densidad', xlab = 'Marcador',
-               cex.axis = a, cex.lab = a-0.1,
-               h=2, col = c("dodgerblue4", "#D2691E"), cex.main = 1)
+               cex.axis = 1.5, cex.lab = 1.5,
+               h=2, col = c("dodgerblue4", "#D2691E"), cex.main = 1.5)
 legend('topright', legend = c(TeX('$\\chi$'), TeX('$\\xi$')),
        col = c('dodgerblue4', '#D2691E'), lwd = 2, bty = 'n',
        inset = 0.01, cex = 1.5)
@@ -346,11 +346,11 @@ J2 <- 1-t_opt2 + R_opt2 #indice de Youden
 AUC2 <- groc$auc
 
 plot_densities(roc, main='Funciones de densidad', xlab = 'Marcador',
-               cex.axis = 1.5, cex.lab = 1.5,
+               cex.axis = 1.2, cex.lab = 1.2,
                h=2, col = c("dodgerblue4", "#D2691E"), cex.main = 1.5)
 legend('topright', legend = c(TeX('$\\chi$'), TeX('$\\xi$')),
        col = c('dodgerblue4', '#D2691E'), lwd = 2, bty = 'n',
-       inset = 0.01, cex = 1.5)
+       inset = 0.01, cex = 1.2)
 
 plot.regions(roc, plot.roc=TRUE, xlim=c(-2,6), legend=FALSE,
              main='Intervalos de clasificación', xlab = 'Marcador',
@@ -550,11 +550,12 @@ par(mar = c(5.1, 5, 4.1, 2.1))
 plot(x, f(x, a, b, rho, delta), type = 'l', lwd = 3, col = "dodgerblue4", 
      main = "Funciones de densidad", xlab = "Marcador", ylab = "f(x)",
      ylim = c(-1.65,1.65), xlim = c(0,1.14), yaxt = "n", frame = FALSE,
-     cex.main = 2, cex.axis = 2, cex.lab = 2)
-axis(2, at = seq(-1.5,1.5,.5), labels = abs(seq(-1.5,1.5,.5)), cex.axis = 2)
+     cex.main = 1.5, cex.axis = 1.5, cex.lab = 1.5)
+axis(2, at = seq(-1.5,1.5,.5), labels = abs(seq(-1.5,1.5,.5)), cex.axis = 1.5)
 lines(x, -dunif(x,0,1), lwd = 3, col = "#D2691E")
+lines(x, rep(0,length(x)), lwd = 1.5, lty = 2, col = 'grey')
 legend("topright", legend = c(expression(chi), expression(xi)), col = c("dodgerblue4", "#D2691E"),
-       lwd = 2, bty = "n", inset = .01, cex = 2)
+       lwd = 2, bty = "n", inset = .01, cex = 1.5)
 
 
 # plot_densities(roc, main = 'Funciones de densidad', xlab = 'Marcador',
@@ -596,7 +597,7 @@ plot(x, dnorm(x, 0, 1), type = 'l', lwd = 3, col = "dodgerblue4",
      xlim = c(-6,10), ylim = c(-0.3,0.5), yaxt = "n", frame = FALSE, cex.main = 1.5,
      cex.axis = 1.5, cex.lab = 1.5)
 axis(2, at = seq(-0.3,0.5,.15), labels = abs(seq(-0.3,0.5,.15)), cex.axis = 1.5)
-#abline(h = 0, lty = 2, lwd = 2, col = "gray")
+abline(h = 0, lty = 2, lwd = 1.5, col = "gray")
 lines(x, -dnorm(x, a1, b1), lwd = 2, col = "#D2691E")
 legend("topright", legend = c(expression(chi), expression(xi)), cex = 1.5,
        col = c("dodgerblue4", "#D2691E"), lwd = 2, bty = "n", inset = .01)
@@ -626,7 +627,7 @@ plot(x, dnorm(x, 0, 1), type = 'l', lwd = 3, col = "dodgerblue4",
      xlim = c(-4,6), ylim = c(-0.5,0.5), yaxt = "n", frame = FALSE, cex.main = 1.5,
      cex.axis = 1.5, cex.lab = 1.5)
 axis(2, at = seq(-0.5,0.5,.25), labels = abs(seq(-0.5,0.5,.25)), cex.axis = 1.5)
-#abline(h = 0, lty = 2, lwd = 2, col = "gray")
+abline(h = 0, lty = 2, lwd = 2, col = "gray")
 lines(x, -dnorm(x, a2, b2), lwd = 2, col = "#D2691E")
 legend("topright", legend = c(expression(chi), expression(xi)), cex = 1.5,
        col = c("dodgerblue4", "#D2691E"), lwd = 2, bty = "n", inset = .01)
@@ -656,7 +657,7 @@ plot(x, dnorm(x, 0, 1), type = 'l', lwd = 3, col = "dodgerblue4",
      xlim = c(-4,8), ylim = c(-0.5,0.5), yaxt = "n", frame = FALSE, cex.main = 1.5,
      cex.axis = 1.5, cex.lab = 1.5)
 axis(2, at = seq(-0.5,0.5,.25), labels = abs(seq(-0.5,0.5,.25)), cex.axis = 1.5)
-#abline(h = 0, lty = 2, lwd = 2, col = "gray")
+abline(h = 0, lty = 2, lwd = 2, col = "gray")
 lines(x, -dnorm(x, a3, b3), lwd = 2, col = "#D2691E")
 legend("topright", legend = c(expression(chi), expression(xi)), cex = 1.5,
        col = c("dodgerblue4", "#D2691E"), lwd = 2, bty = "n", inset = .01)
@@ -1516,6 +1517,7 @@ axis(2, at = seq(-0.3,0.5,.15), labels = abs(seq(-0.3,0.5,.15)), cex.axis = 1.5)
 lines(x, -dnorm(x, a1, b1), lwd = 2, col = "#D2691E")
 lines(x, -dnorm(x, a2, b2), lwd = 2, col = "darkolivegreen")
 lines(x, -dnorm(x, a3, b3), lwd = 2, col = "firebrick4")
+lines(x, rep(0,length(x)), lwd = 1.5, lty = 2, col = 'grey')
 legend("topright", legend = c(expression(chi), expression(xi[1]), expression(xi[2]), expression(xi[3])),
        cex = 1.5, col = c("dodgerblue4", "#D2691E", 'darkolivegreen', 'firebrick4'), lwd = 2, bty = "n", inset = .01)
 
@@ -1554,7 +1556,8 @@ axis(2, at = seq(-0.2,0.5,.1), labels = abs(seq(-0.2,0.5,.1)), cex.axis = 1.5)
 lines(x, -dt((x-1)/2.2, v)/2.2, lwd = 2, col = "#D2691E")
 lines(x, -dgamma(x+3.5, shape = k, scale = theta), lwd = 2, col = "darkolivegreen")
 lines(x, -dbeta((x+3.7)/10, 2, 2)/10, lwd = 2, col = "firebrick4")
-legend("topright", legend = c(expression(chi), expression(xi[1]), expression(xi[2]), expression(xi[3])),
+lines(x, rep(0,length(x)), lwd = 1.5, lty = 2, col = 'grey')
+legend("topright", legend = c(expression(chi), expression(xi[4]), expression(xi[5]), expression(xi[6])),
        cex = 1.5, col = c("dodgerblue4", "#D2691E", 'darkolivegreen', 'firebrick4'), lwd = 2, bty = "n", inset = .01)
 
 plot(t, R_teo4, type = 'l', lwd = 3, main = "Curva ROC usual", xlab = "False-Positive Rate",
