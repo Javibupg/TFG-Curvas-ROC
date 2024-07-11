@@ -369,7 +369,7 @@ plot.regions(groc, plot.roc=TRUE, xlim=c(-2,6), legend=FALSE, h=5,
 # Contraejemplo ----
 library(movieROC)
 plot_regions.groc <- function(x, FPR = 0.15, plot.roc = TRUE, plot.auc = FALSE, col = c('white','grey'), col.FPR = 'blue', lwd = 2, new.window = TRUE, type.plotroc = 's', xlim = NULL, mar = c(5,6,4,0.25),
-                              cex.lab = 1.5, cex.axis = 1.5, cex.main = 1.75, main = NULL, xlab = "", ylab = "False-Positive Rate", main.plotroc = "ROC curve", legend = TRUE, cex.legend = 1, ...){
+                              cex.lab = 1.5, cex.axis = 1.5, cex.main = 1.75, main = NULL, xlab = "", ylab = "False-Positive Rate", main.plotroc = "", legend = TRUE, cex.legend = 1, ...){
   
   obj <- x
   side <- obj$side
@@ -562,8 +562,8 @@ legend("topright", legend = c(expression(chi), expression(xi)), col = c("dodgerb
 #                cex.axis = 1, cex.lab = 1,
 #                h = 1, col = c("dodgerblue4", "#D2691E"), cex.main = 1.5)
 #pdf("Contraejemplo_Clasif.pdf")
-plot_regions.groc(roc, legend = FALSE, main = 'Intervalos de clasificación', plot.auc = TRUE,
-                  FPR = c(0.3, 0.5), xlab = 'Marcador', plot.roc = TRUE, main.plotroc = 'Curva gROC',
+plot_regions.groc(groc, legend = FALSE, main = 'Intervalos de clasificación', plot.auc = TRUE,
+                  FPR = c(0.3, 0.5), xlab = 'Marcador', plot.roc = TRUE,
                   cex.main = 2, cex.axis = 2, cex.lab = 2)
 
 
